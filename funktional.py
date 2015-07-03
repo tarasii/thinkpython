@@ -1,8 +1,12 @@
 
-def factorial(n):
-  return map(lambda n: reduce(lambda x,y: x*y, [1]+range(1,n+1)),l)
+def _factorial(n):
+  return reduce(lambda x,y: x*y, [1]+range(1,n+1))
 
-def randomfill():
+def factorial_list(l):
+  #return map(lambda n: reduce(lambda x,y: x*y, [1]+range(1,n+1)),l)
+  return map(_factorial, l)
+
+def random_fill():
   return [random.randint(0,100) for x in [None]*6]
   #return map(lambda x: random.randint(0,100), [None] * 6)
 
