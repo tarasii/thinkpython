@@ -10,10 +10,10 @@ def random_fill():
   return [random.randint(0,100) for x in [None]*6]
   #return map(lambda x: random.randint(0,100), [None] * 6)
 
-def _min(l)
+def _min(l):
   return reduce(lambda x,y: y if x>y else x,l)
 
-def _max(l)
+def _max(l):
   return reduce(lambda x,y: y if x<y else x,l)
 
 def anti_vowel(s):
