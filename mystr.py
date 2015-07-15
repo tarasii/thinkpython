@@ -41,16 +41,27 @@ def is_reverse_classic(word1, word2):
          
    return True
 
-def file_to_list_simple():
-  fin = open("113809of.fic")
+def is_anagram_classic(word1, word2):
+  for x in word1:
+    if x not in word2:
+      return False
+ return True
+
+def is_anagram(word1, word2):
+  if set(list(word1))==set(list(word2)):
+    return True
+  return False
+
+def file_to_list_simple(fn):
+  fin = open(fn)
   t = list(fin)
   fin.close()  
   return t
 
 
-def file_to_list_classic():
+def file_to_list_classic(fn):
   t = []
-  fin = open("113809of.fic")
+  fin = open(fn)
   for line in fin:
     word = line.strip()
     t.append(word)
@@ -58,9 +69,9 @@ def file_to_list_classic():
   fin.close()
   return t
 
-def file_to_list_dump():
+def file_to_list_dump(fn):
   t = []
-  fin = open("113809of.fic")
+  fin = open(fn)
   for line in fin:
     word = line.strip()
     t = t + [word]
