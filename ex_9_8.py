@@ -1,13 +1,15 @@
+def is_palindrome_classic(word):
+  i = 0
+  j = len(word)-1
+  while i<j:
+    if word[i] != word[j]:
+      return False
+    i = i+1
+    j = j-1
+  return True
+
 def is_palindrome(word):
   return word[::-1] == word
-  #i = 0
-  #j = len(word)-1
-  #while i<j:
-    #if word[i] != word[j]:
-      #return False
-    #i = i+1
-    #j = j-1
-  #return True
 
 def check(i):
     pl = "%06d" % (i)
