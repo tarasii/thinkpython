@@ -5,7 +5,7 @@ p = pm.pm()
 cntd = 0
 cntdd = 0
 cntddd = 0
-l = mystr.file_to_list_simple()
+l = mystr.file_to_list_simple("113809of.fic")
 
 for x in l:
   for i in range(len(x)-1):
