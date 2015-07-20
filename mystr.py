@@ -42,10 +42,15 @@ def is_reverse_classic(word1, word2):
    return True
 
 def is_anagram_classic(word1, word2):
+  for x in word2:
+    if x not in word1:
+      return False
+    
   for x in word1:
     if x not in word2:
       return False
- return True
+        
+  return True
 
 def is_anagram(word1, word2):
   if set(list(word1))==set(list(word2)):
