@@ -52,6 +52,11 @@ def is_anagram_classic(word1, word2):
         
   return True
 
+def is_interlock(wocab_list, word):
+  word_odd = word[::2]
+  word_even = word[1::2]
+  return find_bisect(wocab_list, word_odd) <> -1 and find_bisect(wocab_list, word_even) <> -1  
+
 def is_anagram(word1, word2):
   if set(list(word1))==set(list(word2)):
     return True
@@ -83,3 +88,27 @@ def file_to_list_dump(fn):
 
   fin.close()
   return t
+
+def find_bisect(wocab_list, word):
+    end_lim = len(wocab_list) - 1
+    begin_lim = 0
+    last_tmp = 0
+    tmp = begin_lim +(end_lim - begin_lim) / 2
+    while last_tmp <> tmp and wocab_list[tmp] <> word and wocab_list[begin_lim] <> word and wocab_list[end_lim] <> word:
+        #print wocab_list[tmp], cnt, begin_lim, end_lim
+        if word > wocab_list[tmp]:
+            begin_lim = tmp
+        else:
+            end_lim = tmp
+
+        last_tmp = tmp
+        tmp = begin_lim +(end_lim - begin_lim) / 2
+
+    if wocab_list[tmp] <> word and wocab_list[begin_lim] <> word and wocab_list[end_lim] <> word:
+        tmp = -1
+    elif wocab_list[begin_lim] == word:
+        tmp = begin_lim
+    elif wocab_list[end_lim] == word:
+        tmp = end_lim
+
+    return tmp
