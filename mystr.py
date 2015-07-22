@@ -76,8 +76,8 @@ def file_to_list_classic(fn):
 def words_no_letters(wocab, letters):
   res = []
   for x in wocab:
-  if not mystr.has_letters(x, letters):
-    res.append(x)
+    if not has_letters(x, letters):
+      res.append(x)
   return res
 
 def words_no_letters_func(wocab, letters):
