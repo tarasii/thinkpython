@@ -52,22 +52,16 @@ def is_anagram_classic(word1, word2):
         
   return True
 
-def is_interlock(wocab_list, word):
-  word_odd = word[::2]
-  word_even = word[1::2]
-  return find_bisect(wocab_list, word_odd) <> -1 and find_bisect(wocab_list, word_even) <> -1  
-
 def is_anagram(word1, word2):
   if set(list(word1))==set(list(word2)):
     return True
   return False
-
+  
 def file_to_list_simple(fn):
   fin = open(fn)
   t = list(fin)
   fin.close()  
   return t
-
 
 def file_to_list_classic(fn):
   t = []
@@ -79,15 +73,20 @@ def file_to_list_classic(fn):
   fin.close()
   return t
 
-def file_to_list_dump(fn):
-  t = []
-  fin = open(fn)
-  for line in fin:
-    word = line.strip()
-    t = t + [word]
+def words_no_letters(wocab, letters):
+  res = []
+  for x in wocab:
+  if not mystr.has_letters(x, letters):
+    res.append(x)
+  return res
 
-  fin.close()
-  return t
+def words_no_letters_func(wocab, letters):
+  return filter(lamda a: not mystr.has_letters(a, letters), wocab)
+
+def is_interlock(wocab_list, word):
+  word_odd = word[::2]
+  word_even = word[1::2]
+  return find_bisect(wocab_list, word_odd) <> -1 and find_bisect(wocab_list, word_even) <> -1  
 
 def find_bisect(wocab_list, word):
     end_lim = len(wocab_list) - 1
