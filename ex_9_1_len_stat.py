@@ -21,6 +21,23 @@ def len_statistics(wocab):
 
   return w
 
+def len_statistics_2(wocab):
+  w = []
+  for line in wocab:
+    word = line.strip()
+    l = len(word)
+    
+    lw = len(w)
+    if lw < l:
+      while lw < l:
+        w.append(0)
+        lw = lw + 1
+
+    w[l-1] += 1
+
+  return w
+
+
 def len_statistics_func(wocab):
   return collections.Counter(map(lambda a: len(a), wocab))
   
@@ -29,6 +46,9 @@ rl = len_statistics(l)
 print z
 print rl
 
+rl = len_statistics_2(l)
+print z
+print rl
 
 z.start()
 rl = len_statistics_func(l)
