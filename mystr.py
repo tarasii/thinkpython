@@ -5,6 +5,23 @@ def has_letters(word, letters):
   
   return False 
 
+def uses_only(word, available):
+  for letter in word:
+    if letter not in available:
+      return False
+
+  return True
+
+def uses_all_classic(word, required):
+  for letter in required:
+    if letter not in word:
+      return False
+
+  return True
+
+def uses_all(word, required):
+  return uses_only(required, word)
+
 def is_palindrome(word):
   if is_reverse(word,word):
     return True
@@ -20,6 +37,23 @@ def is_palindrome_classic(word):
    i += i
    j -= j
  return True
+
+def is_abecedarian(word):
+  previous = word[0]
+  for c in word:
+    if c < previous:
+      return False
+
+    previous = c
+
+  return True
+
+def is_abecedarian_recurs(word):
+  if len(word) <= 1:
+    return True
+  if word[0] > word[1]:
+    return False
+  return is_abecedarian(word[1:])
 
 def is_reverse(word1, word2):
   if len(word1) != len(word2):
@@ -81,7 +115,7 @@ def words_no_letters(wocab, letters):
   return res
 
 def words_no_letters_func(wocab, letters):
-  return filter(lamda a: not mystr.has_letters(a, letters), wocab)
+  return filter(lambda a: not has_letters(a, letters), wocab)
 
 def is_interlock(wocab_list, word):
   word_odd = word[::2]
