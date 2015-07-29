@@ -11,8 +11,7 @@ def histogram_classic(s):
 def histogram(s):
   d = dict()
   for c in s:
-    if c not in d:
-      d[c] =  h.get(c, 1)
+    d[c] =  h.get(c, 0) + 1
 
   return d
 
