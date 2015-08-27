@@ -10,17 +10,19 @@ def file_to_dict_classic(fn):
 
   return t
 
+def rotate_letter(letter, n):
+  x = ord(letter) + n
+  if x > letter_z:
+    x = x - letter_number
+  elif x < letter_a:
+    x = x + letter_number
+    
+  return chr(x)
+
 def rotate_word(word, n):
   res = ""
-  for x in word.lower():
-    t = ord(x) + n
-    if t > letter_z:
-      t = t - letter_z + letter_a - 1
-    elif t < letter_a:
-      t = t + letter_z - letter_a + 1
-    #rint x, ord(x), t
-
-    res += chr(t)
+  for letter in word.lower():
+    res += rotate_letter(letter, n)
     
   return res
 
@@ -31,15 +33,14 @@ def list_to_dic(w):
     
   return d
   
-def find_rotate_pairs(l, d):
-  for x in l:
-    for n in range(1, y):
-      r = rotate_word(x, n)
-      if r in d:
-        print x, r  
-        d[x].append(r)
+def rotate_pairs(d, x):
+  for n in range(1, letter_number):
+    r = rotate_word(x, n)
+    if r in d:
+      #print x, r  
+      d[x].append(r)
         
-  return none
+  return None
   
 def print_pairs(d):
   for x in l:
@@ -48,7 +49,7 @@ def print_pairs(d):
 
 letter_a = ord("a")
 letter_z = ord("z")
-y = letter_z - letter_a + 1
+letter_number = letter_z - letter_a + 1
   
 zz = pm.pm()
 l = mystr.file_to_list_classic("113809of.fic")
@@ -58,7 +59,15 @@ print zz
 
 
 zz.start()
-find_rotate_pairs(l, d)
+cnt = 0
+for x in l:
+  rotate_pairs(d, x)
+
+  cnt += 1
+  if cnt % 1000 == 0:
+    print ".",
+
+print ""
 
 print zz
 
