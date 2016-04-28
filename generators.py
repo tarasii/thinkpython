@@ -9,24 +9,19 @@ def fib_generator(n):
   i = 0
   while i<=n:
     yield a
-    a, b = b, a+b
-    i+=1
+    a, b, i = b, a+b, i+1
 
 def fib_negative_generator(n):
-  a, b = 0, 1
-  i = 0
+  a, b, i = 0, 1, 0
   while i<=n:
     yield a
-    a, b = b, a-b
-    i+=1
+    a, b, i = b, a-b, i+1
 
 def factorial_generator(n):
-  a = 1
-  i = 1
+  a, i = 1, 1
   while i<=n:
     yield a
-    a*=i
-    i+=1
+    a, i = a*i, i+1
 
 def myrange(start,end,step=1):
   i = start
