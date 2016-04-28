@@ -30,7 +30,7 @@ def fib_range(n):
 
   return a
 
-
+#endles generator
 def fib_generator():
     a,b = 0,1
     yield a
