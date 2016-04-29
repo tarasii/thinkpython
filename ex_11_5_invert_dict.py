@@ -19,13 +19,15 @@ def invert_dict_classic(d):
 
 def invert_dict_alt(d):
   inv = dict()
-  for key in d:
-    val = d[key]
-    l = inv.get(val,[])
-    if len(l) == 0:
-      inv[val] = l
-
-    l.append(key)
+#  for key in d:
+#    val = d[key]
+#    l = inv.get(val,[])
+#    if len(l) == 0:
+#      inv[val] = l
+#    l.append(key)``
+  for key, val in d.iteritems():
+    inv[val] = inv.get(val, [])
+    inv[val].append(key)
 
   return inv
 
@@ -49,3 +51,5 @@ print h
 print invert_dict_classic(h)
 print invert_dict_alt(h)
 print invert_dict(h)
+print dict(zip(h.values(), h.keys()))
+print {v: k for k, v in h.iteritems()}
