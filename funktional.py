@@ -1,3 +1,5 @@
+import random
+
 def matrix_rotate(mx)
   return zip(*mx)
 
