@@ -1,6 +1,9 @@
 
 def _factorial(n):
   return reduce(lambda x,y: x*y, [1]+range(1,n+1))
+  
+def _simple(n)
+  return reduce(lambda x,y: x and bool(n % y), range(2,n), True)
 
 def factorial_list(l):
   #return map(lambda n: reduce(lambda x,y: x*y, [1]+range(1,n+1)),l)
