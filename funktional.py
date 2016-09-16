@@ -1,3 +1,5 @@
+def matrix_rotate(mx)
+  return zip(*mx)
 
 def _factorial(n):
   return reduce(lambda x,y: x*y, [1]+range(1,n+1))
@@ -28,6 +30,7 @@ def _max(l):
 
 def anti_vowel(s):
   return filter(lambda x: not x in 'aeiuoAEIUO', s)
+  
   
   #return reduce(lambda x,y: x+y if not y in 'aeiuoAEIUO' else x+'' , s, '')
   
