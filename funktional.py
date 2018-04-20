@@ -44,3 +44,13 @@ def anti_vowel(s):
       #res = res + s[n]
           
   #return res
+
+def combine_two_lists(ls1, ls2):
+  """ 
+  combine two one demension list to one two demension
+  example: [1, 2, 3] U [4, 5, 6] = [(1, 4), (2, 5), (3, 6)]
+  """ 
+  ls = [ls1, ls2]
+  ret = zip(*ls)
+  return ret
+
